@@ -5,9 +5,10 @@ import { Dulceria } from './features/dulceria/dulceria';
 import { Proximamente } from './features/proximamente/proximamente';
 
 export const routes: Routes = [
-    {path:"home", component:Home}
-    {path:"cartelera", component:Cartelera}
-    {path:"dulceria", component:Dulceria}
-    {path:"proximamente", component:Proximamente}
+    {path:"home", component:Home},
+    {path:"cartelera", component:Cartelera},
+    {path:"dulceria", component:Dulceria},
+    {path:"proximamente", component:Proximamente},
+    {path:"**", component:Home},
 
 ];
