@@ -6,3 +6,25 @@
     colorBoton="bg-gray-800"
 
 ></app-hero>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+    @for(pelicula of peliculas(); track pelicula.id){
+        <div>
+        <img class="h-auto max-w-full rounded-base mb-2 mx-auto"
+            [src]="pelicula.imagen"
+            [alt]="pelicula.titulo">
+        <h2 class="text-center font-bold text-base line-clamp-2 mb-1">
+            {{ pelicula.titulo }}
+        </h2>
+        <p class="text-center text-sm text-gray-600 italic mb-2">
+            {{ pelicula.genero }}
+        </p>
+        <p class="text-center font-bold text-xs text-gray-500 line-clamp-3">
+            {{ pelicula.descripcion }}
+        </p>
+        <p class="text-center font-bold text-xs text-gray-500 line-clamp-3">
+            {{ pelicula.anio }}
+        </p>
+        </div>
+    }
+</div>
+
