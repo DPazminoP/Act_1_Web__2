@@ -1,31 +1,44 @@
-
-<div class="min-h-screen bg-amber-400 flex items-center justify-center">
+<div class="min-h-screen bg-amber-400 flex items-center justify-center p-4">
   <div class="max-w-md w-full bg-white rounded-2xl shadow-lg p-6">
     <h2 class="text-2xl font-bold text-black mb-4 text-center">🛒 Carrito de Compras</h2>
 
-    <!-- Lista de productos -->
     <ul>
-      <li *ngFor="let item of items" class="flex justify-between items-center bg-white rounded-lg px-3 py-2 mb-2 shadow">
-        <span class="text-black font-medium">{{ item.nombre }}</span>
-        <span class="text-black">${{ item.precio }}</span>
-        <button (click)="remove(item.id)" class="text-red-600 hover:text-red-800 ml-4">🗑️</button>
+      @for (item of cartService.items(); track item.producto.id) {
+        <li class="flex justify-between items-center bg-white rounded-lg px-3 py-2 mb-2 shadow">
+          <span class="text-black font-medium flex-1">{{ item.producto.nombre }}</span>
+
+          <div class="flex items-center gap-2 mx-3">
+            <button (click)="cartService.decreaseItem(item.producto.id)"
+                    class="bg-gray-200 text-black w-6 h-6 rounded">−</button>
+            <span class="text-black w-4 text-center">{{ item.cantidad }}</span>
+            <button (click)="cartService.addItem(item.producto)"
+                    class="bg-gray-200 text-black w-6 h-6 rounded">+</button>
+          </div>
+
+          <span class="text-black w-16 text-right">
+            {{ item.producto.precio * item.cantidad | currency }}
+          </span>
+          <button (click)="cartService.removeItem(item.producto.id)"
+                  class="text-red-600 hover:text-red-800 ml-3">🗑️</button>
         </li>
+      } @empty {
+        <li class="text-center text-gray-600 py-4">Tu carrito está vacío.</li>
+      }
     </ul>
 
-    <!-- Total -->
     <div class="flex justify-between items-center mt-4 border-t border-gray-300 pt-4">
-        <span class="text-lg font-semibold text-black">Total:</span>
-        <span class="text-lg font-bold text-black">${{ total }}</span>
+      <span class="text-lg font-semibold text-black">Total:</span>
+      <span class="text-lg font-bold text-black">{{ cartService.total() | currency }}</span>
     </div>
 
-    <!-- Botones -->
     <div class="flex justify-between mt-6">
-        <button    utton (click)="clear()" class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900">
-            Vaciar carrito
-        </button>
-        <button class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900">
-            Ir a pagar
-        </button>
-        </div>
+      <button (click)="cartService.clearCart()"
+              class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900">
+        Vaciar carrito
+      </button>
+      <button class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900">
+        Ir a pagar
+      </button>
     </div>
+  </div>
 </div>

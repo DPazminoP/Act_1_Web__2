@@ -1,0 +1,68 @@
+{
+  "snacks": [
+    {
+      "id": "1",
+      "nombre": "Palomitas clásicas",
+      "descripcion": "Palomitas de maíz con mantequilla",
+      "precio": 3.50,
+      "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Popcorn02.jpg/500px-Popcorn02.jpg",
+      "categoria": "popcorn"
+    },
+    {
+      "id": "2",
+      "nombre": "Nachos con queso",
+      "descripcion": "Nachos crujientes con salsa de queso",
+      "precio": 4.00,
+      "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Nachos-cheese.jpg/500px-Nachos-cheese.jpg",
+      "categoria": "nachos"
+    },
+    {
+      "id": "3",
+      "nombre": "Hot Dog",
+      "descripcion": "Pan con salchicha y aderezos",
+      "precio": 5.00,
+      "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Hot_Dog_in_Berlin.jpg/500px-Hot_Dog_in_Berlin.jpg",
+      "categoria": "comida rápida"
+    },
+    {
+      "id": "4",
+      "nombre": "Hamburguesa",
+      "descripcion": "Hamburguesa de carne con queso y vegetales",
+      "precio": 6.50,
+      "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Big_Buford_burger_from_Checkers.jpg/500px-Big_Buford_burger_from_Checkers.jpg",
+      "categoria": "comida rápida"
+    },
+    {
+      "id": "5",
+      "nombre": "Refresco grande",
+      "descripcion": "Bebida gaseosa de 500ml",
+      "precio": 2.50,
+      "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/IncaKolaBottleGlass.jpg/500px-IncaKolaBottleGlass.jpg",
+      "categoria": "bebida"
+    },
+    {
+      "id": "6",
+      "nombre": "Agua mineral",
+      "descripcion": "Botella de agua de 500ml",
+      "precio": 1.50,
+      "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/A_bottle_of_cold_water_with_droplets.jpg/500px-A_bottle_of_cold_water_with_droplets.jpg",
+      "categoria": "bebida"
+    },
+    {
+      "id": "7",
+      "nombre": "Chocolate",
+      "descripcion": "Barra de chocolate con leche",
+      "precio": 2.00,
+      "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Green_and_Black's_dark_chocolate_bar_2.jpg/500px-Green_and_Black's_dark_chocolate_bar_2.jpg",
+      "categoria": "dulce"
+    },
+    {
+      "id": "8",
+      "nombre": "Gomitas",
+      "descripcion": "Paquete de gomitas de frutas",
+      "precio": 1.80,
+      "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Oursons_g%C3%A9latine_march%C3%A9_Rouffignac.jpg/500px-Oursons_g%C3%A9latine_march%C3%A9_Rouffignac.jpg",
+      "categoria": "dulce"
+    }
+  ]
+}

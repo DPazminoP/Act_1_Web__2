@@ -1,0 +1,24 @@
+<div class="min-h-screen bg-amber-400 p-4">
+  <div class="flex justify-end mb-4">
+    <a routerLink="/carrito" class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900">
+      🛒 Ver carrito ({{ cartService.cantidadTotal() }})
+    </a>
+  </div>
+
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+    @for (snack of snacks(); track snack.id) {
+      <div class="bg-white rounded-lg shadow p-3">
+        <img class="h-32 w-full object-cover rounded mb-2" [src]="snack.imagen" [alt]="snack.nombre">
+        <h2 class="text-center font-bold text-base mb-1 text-black">{{ snack.nombre }}</h2>
+        <p class="text-center text-sm text-black italic mb-2">{{ snack.descripcion }}</p>
+        <p class="text-center font-bold text-sm text-black">${{ snack.precio }}</p>
+        <button (click)="agregar(snack)"
+                class="mt-2 w-full bg-gray-800 text-white py-1 rounded hover:bg-gray-900">
+          Agregar al carrito
+        </button>
+      </div>
+    } @empty {
+      <p class="col-span-full text-center text-black">No hay snacks disponibles.</p>
+    }
+  </div>
+</div>

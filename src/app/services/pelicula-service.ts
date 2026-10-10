@@ -5,7 +5,7 @@ import { ResultadosPeliculas } from '../classes/pelicula';
 
 @Injectable({ providedIn: 'root' })
 export class PeliculaService {
-  private API_PELICULAS = 'https://dpazminop.github.io/peliculas-json/peliculas.json';
+  private API_PELICULAS = 'https://raw.githubusercontent.com/DPazminoP/peliculas-json/refs/heads/main/peliculas.json';
   private http = inject(HttpClient);
 
   obtenerPeliculas(): Observable<ResultadosPeliculas> {

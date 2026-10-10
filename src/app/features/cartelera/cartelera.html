@@ -1,30 +1,49 @@
 <app-hero
-    titulo="MIRA EL CONTENIDO EN NUESTRA CARTELERA Y CONSULTA LOS HORARIOS"
-    contenido="Haz clic sobre la pelicula para ver los horarios y opciones de compras de los boletos"
-    imagen="https://i.postimg.cc/gJq6B5H4/80.jpg"
-    textBoton="Mas informacion"
-    colorBoton="bg-gray-800"
-
+  titulo="MIRA EL CONTENIDO EN NUESTRA CARTELERA Y CONSULTA LOS HORARIOS"
+  contenido="Haz clic sobre la pelicula para ver los horarios y opciones de compras de los boletos"
+  imagen="https://i.postimg.cc/gJq6B5H4/80.jpg"
+  textBoton="Mas informacion"
+  colorBoton="bg-gray-800"
 ></app-hero>
-<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-    @for(pelicula of peliculas(); track pelicula.id){
-        <div>
-        <img class="h-auto max-w-full rounded-base mb-2 mx-auto"
-            [src]="pelicula.imagen"
-            [alt]="pelicula.titulo">
-        <h2 class="text-center font-bold text-base line-clamp-2 mb-1">
-            {{ pelicula.titulo }}
-        </h2>
-        <p class="text-center text-sm text-gray-600 italic mb-2">
-            {{ pelicula.genero }}
-        </p>
-        <p class="text-center font-bold text-xs text-gray-500 line-clamp-3">
-            {{ pelicula.descripcion }}
-        </p>
-        <p class="text-center font-bold text-xs text-gray-500 line-clamp-3">
-            {{ pelicula.anio }}
-        </p>
-        </div>
-    }
-</div>
 
+<hr class="border-t-4 border-black my-4">
+
+<!-- Fondo general amber-400 -->
+<div class="min-h-screen bg-amber-400">
+  <!-- Botón carrito -->
+  <div class="flex justify-end p-4">
+    <a routerLink="/carrito" class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900">
+      🛒 Ver carrito ({{ cartService.cantidadTotal() }})
+    </a>
+  </div>
+
+  <!-- Grid de películas -->
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 px-4 pb-4">
+    @for (pelicula of peliculas(); track pelicula.id) {
+      <!-- Tarjeta blanca -->
+      <div class="bg-white rounded-lg shadow p-3">
+        <img class="h-auto max-w-full rounded mb-2 mx-auto"
+              [src]="pelicula.imagen"
+              [alt]="pelicula.titulo">
+        <h2 class="text-center font-bold text-base mb-1 text-black">
+          {{ pelicula.titulo }}
+        </h2>
+        <p class="text-center text-sm text-black italic mb-2">
+          {{ pelicula.genero }}
+        </p>
+        <p class="text-center font-bold text-xs text-black mb-1">
+          {{ pelicula.descripcion }}
+        </p>
+        <p class="text-center font-bold text-xs text-black">
+          {{ pelicula.anio }}
+        </p>
+        <button (click)="agregar(pelicula)"
+                class="mt-2 w-full bg-gray-800 text-white py-1 rounded hover:bg-gray-900">
+          Agregar al carrito
+        </button>
+      </div>
+    } @empty {
+      <p class="col-span-full text-center text-black">No hay películas disponibles.</p>
+    }
+  </div>
+</div>
