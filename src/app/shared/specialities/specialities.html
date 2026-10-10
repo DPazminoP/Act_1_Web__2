@@ -1,0 +1,25 @@
+<div class="max-w-5xl mx-auto p-6 bg-gray-50 dark:bg-neutral-950 min-h-screen">
+  <h1 class="text-3xl font-extrabold text-gray-800 dark:text-amber-400 mb-8 border-b-4 border-red-800 inline-block">
+    {{ subtitulo }}
+  </h1>
+
+  <input type="text" (input)="buscar($event)" placeholder="Buscar servicio..."
+    class="w-full px-4 py-2 mb-6 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600">
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    @for(servicio of especialidadesFiltradas; track servicio.id){
+      <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-4 hover:bg-amber-50 dark:hover:bg-gray-800 transition-colors">
+        <img [src]="servicio.imagen" [alt]="servicio.nombre" class="h-40 w-40 object-contain mx-auto mb-4">
+        <h2 class="text-center text-red-800 dark:text-amber-400 font-bold text-lg">{{ servicio.nombre }}</h2>
+        <p class="text-center text-gray-700 dark:text-gray-300">{{ servicio.descripcion }}</p>
+        <button (click)="seleccionar(servicio.nombre)"
+          class="mt-4 w-full bg-red-800 hover:bg-red-900 text-white font-bold py-2 rounded-lg shadow-md">
+          Seleccionar
+        </button>
+      </div>
+    }
+    @empty{
+      <p class="text-center text-amber-500 italic">No se encontraron servicios...</p>
+    }
+  </div>
+</div>

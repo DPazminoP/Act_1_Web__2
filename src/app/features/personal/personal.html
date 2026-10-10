@@ -1,0 +1,48 @@
+<app-hero
+    titulo="Sobre Nosotros"
+    contenido="Somos un refugio para los amantes del verdadero arte cinematográfico. 
+                Nos dedicamos exclusivamente a proyectar las grandes joyas de la pantalla grande estrenadas antes del año 2000.
+                Desde las obras maestras del cine mudo de la década de 1920 hasta los inolvidables clásicos de culto de los 80 y 90,
+                devolvemos la magia de las cintas históricas a la sala oscura. Ven a revivir momentos icónicos, 
+                descubrir leyendas del séptimo arte y disfrutar de una experiencia nostálgica e inolvidable 
+                con la mejor compañía y dulcería.."
+    imagen="https://i.postimg.cc/d372LnKb/Cine-viejo.png"
+    textBoton="Ver nuestras películas actuales"
+    colorBoton="bg-gray-800" 
+></app-hero>
+
+<hr class="border-t-4 border-black my-4">
+
+<h1 class="text-3xl lg:text-4xl font-semibold text-black text-center bg-amber-400 py-4 rounded-lg underline">
+    Nuestro personal <span class="text-blue-500"></span>
+</h1>
+
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 bg-amber-400 p-6 rounded-xl">
+    
+    @for (trabajador of trabajadores(); track trabajador.id) {
+    <div class="bg-white border border-gray-300 rounded-xl shadow-lg p-4 hover:bg-amber-100 transition-colors">
+    
+        <h2 class="text-center font-bold text-lg text-black">
+        Fotografía del trabajador
+        </h2>
+    
+        <img
+            class="h-40 w-40 object-cover rounded-full mx-auto mt-3 border border-gray-400"
+            [src]="trabajador.image ?? 'assets/placeholder.png'"
+            [alt]="trabajador.name">
+
+        <h2 class="text-center font-bold text-lg mt-3 text-black">
+            Nombre: {{ trabajador.name }}
+        </h2>
+
+        <p class="text-center text-gray-700 mt-2">
+            Género: @switch (trabajador.gender) {
+            @case ('MALE') { Masculino }
+            @case ('FEMALE') { Femenino }
+            @default { Desconocido }
+            }
+        </p>
+        </div>
+    }
+</div>

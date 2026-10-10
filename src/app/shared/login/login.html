@@ -1,0 +1,38 @@
+<div class="flex items-center justify-center min-h-screen bg-amber-400">
+  <form (ngSubmit)="iniciarSecion()" class="max-w-sm w-full bg-white p-6 rounded-2xl shadow-lg">
+    
+    <div class="mb-5">
+      <label for="email-alternative" class="block mb-2.5 text-sm font-medium text-black">
+        Ingrese su email
+      </label>
+      <input [(ngModel)]="email" name="email" id="email-alternative"
+        class="bg-white rounded-2xl border border-gray-300 text-black text-sm block w-full px-3 py-2.5 shadow placeholder:text-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+        placeholder="name@flowbite.com" required />
+    </div>
+
+    <div class="mb-5">
+      <label for="password-alternative" class="block mb-2.5 text-sm font-medium text-black">
+        Ingrese su contraseña
+      </label>
+      <input [(ngModel)]="password" name="password" id="password-alternative"
+        type="password"
+        class="bg-white rounded-2xl border border-gray-300 text-black text-sm block w-full px-3 py-2.5 shadow placeholder:text-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+        placeholder="••••••••" required />
+    </div>
+
+    <div class="flex items-start mb-5">
+      <label for="remember-alternative" class="flex items-center h-5">
+        <input id="remember-alternative" type="checkbox" value=""
+          class="w-4 h-4 border border-gray-400 rounded bg-white focus:ring-2 focus:ring-blue-500" required />
+        <p class="ms-2 text-sm font-medium text-black select-none">
+          Acepto los <a href="#" class="text-blue-700 hover:underline">términos y condiciones</a>.
+        </p>
+      </label>
+    </div>
+
+    <button type="submit"
+      class="w-full rounded-2xl text-white bg-gray-800 hover:bg-gray-900 focus:ring-4 focus:ring-gray-500 font-medium text-sm px-4 py-2.5 shadow-md">
+      Submit
+    </button>
+  </form>
+</div>
